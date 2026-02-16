@@ -20,9 +20,13 @@ export CONFIG_PLATFORM_UBUNTU = y
 
 ifeq ($(CONFIG_PLATFORM_ROCKCHIP), y)
 ARCH = arm64
-KDIR = /home/yaya/E/Rockchip/3566/firefly/Android11.0/Firefly-RK356X_Android11.0_git_20210824/RK356X_Android11.0/kernel
-CROSS_COMPILE = /home/yaya/E/Rockchip/3566/firefly/Android11.0/Firefly-RK356X_Android11.0_git_20210824/RK356X_Android11.0/prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
-ccflags-y += -DANDROID_PLATFORM
+KDIR = /home/ubuntu/distribution/build.ROCKNIX-RK3326.aarch64/linux-6.12.29
+CROSS_COMPILE=/home/ubuntu/distribution/build.ROCKNIX-RK3326.aarch64/toolchain/bin/aarch64-rocknix-linux-gnueabi-
+
+#ARCH = arm64
+#KDIR = /home/yaya/E/Rockchip/3566/firefly/Android11.0/Firefly-RK356X_Android11.0_git_20210824/RK356X_Android11.0/kernel
+#CROSS_COMPILE = /home/yaya/E/Rockchip/3566/firefly/Android11.0/Firefly-RK356X_Android11.0_git_20210824/RK356X_Android11.0/prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+#ccflags-y += -DANDROID_PLATFORM
 endif
 
 ifeq ($(CONFIG_PLATFORM_ALLWINNER), y)
@@ -47,13 +51,17 @@ KDIR = /home/yaya/D/Workspace/CyberQuantum/JinHaoYue/amls905x3/SDK/20191101-0tt-
 endif
 
 ifeq ($(CONFIG_PLATFORM_UBUNTU), y)
-KDIR  = /lib/modules/$(shell uname -r)/build
-PWD   = $(shell pwd)
-KVER = $(shell uname -r)
-MODDESTDIR = /lib/modules/$(KVER)/kernel/drivers/net/wireless/aic8800
-SUBARCH = $(shell uname -m | sed -e s/i.86/i386/ -e s/armv.l/arm/ -e s/aarch64/arm64/ -e s/loongarch64/loongarch/ -e s/loong64/loongarch/)
-ARCH ?= $(SUBARCH)
-CROSS_COMPILE ?=
+ARCH = arm64
+KDIR = /home/ubuntu/distribution/build.ROCKNIX-RK3326.aarch64/linux-6.12.29
+CROSS_COMPILE=/home/ubuntu/distribution/build.ROCKNIX-RK3326.aarch64/toolchain/bin/aarch64-rocknix-linux-gnueabi-
+
+#KDIR  = /lib/modules/$(shell uname -r)/build
+#PWD   = $(shell pwd)
+#KVER = $(shell uname -r)
+#MODDESTDIR = /lib/modules/$(KVER)/kernel/drivers/net/wireless/aic8800
+#SUBARCH = $(shell uname -m | sed -e s/i.86/i386/ -e s/armv.l/arm/ -e s/aarch64/arm64/ -e s/loongarch64/loongarch/ -e s/loong64/loongarch/)
+#ARCH ?= $(SUBARCH)
+#CROSS_COMPILE ?=
 endif
 
 ###########################################
